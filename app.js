@@ -1,5 +1,4 @@
 //jshint esversion:6
-
 const express = require("express");
 
 const ejs = require("ejs");
@@ -12,11 +11,23 @@ const app = express();
 app.use(express.urlencoded());
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(express.static("public"));
 
 
+app.get("/",function(req,res){
 
+  res.render("home",{p1:homeStartingContent});
+})
+app.get("/about",function(req,res){
+
+  res.render("about",{p2:aboutContent});
+})
+app.get("/contact",function(req,res){
+  res.render("contact",{p3:contactContent});
+
+ 
+})
 
 
 
